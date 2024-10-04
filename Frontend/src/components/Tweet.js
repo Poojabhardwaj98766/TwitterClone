@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import Avatar from 'react-avatar';
 import { LuMessageCircle } from "react-icons/lu";
 import { CiHeart } from "react-icons/ci";
-import { CiBookmark, CiBookmarkCheck } from "react-icons/ci"; // Assume CiBookmarkCheck for the "checked" bookmark
+import { CiBookmark} from "react-icons/ci"; // Assume CiBookmarkCheck for the "checked" bookmark
 import axios from 'axios';
 import { TWEET_API_END_POINT, USER_API_END_POINT } from '../utils/contact';
 import { useDispatch, useSelector } from 'react-redux';

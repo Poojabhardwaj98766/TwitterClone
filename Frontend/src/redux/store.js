@@ -3,7 +3,7 @@ import userSlice from "./userSlice";
 import tweetSlice from "./tweetslice";
 
 import {
-    persistStore,
+   
     persistReducer,
     FLUSH,
     REHYDRATE,
