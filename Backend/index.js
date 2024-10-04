@@ -24,7 +24,7 @@ app.use(cookieParser());
 
 // Correct CORS configuration
 const corsoption = {
-    origin: "http://localhost:3000",
+    origin: "https://twitterclone-api-tvqg.onrender.com",
     credentials: true,  // Fix the typo
 };
 app.use(cors(corsoption));
@@ -40,6 +40,9 @@ app.get("/home", (req, res) => {
         message: "Coming from backend...",
         success: true
     });
+});
+app.get('/', (req, res) => {
+    res.send('Welcome to the TwitterClone API');
 });
 
 // Start the server
