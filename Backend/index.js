@@ -24,7 +24,7 @@ app.use(cookieParser());
 
 // Correct CORS configuration
 const corsoption = {
-    origin: "https://twitterclone-api-tvqg.onrender.com",
+    origin: "http://localhost:3000",
     credentials: true,  // Fix the typo
 };
 app.use(cors(corsoption));
