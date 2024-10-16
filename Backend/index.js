@@ -24,7 +24,7 @@ app.use(cookieParser());
 
 // Correct CORS configuration
 const corsoption = {
-    origin: "http://localhost:3000",
+    origin: "twitter-clone-interface.vercel.app",
     credentials: true,  // Fix the typo
 };
 app.use(cors(corsoption));
