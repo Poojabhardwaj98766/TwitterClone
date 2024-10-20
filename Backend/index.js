@@ -14,6 +14,7 @@ dotenv.config({
 // Connect to database
 dataconnect();
 
+// Initialize Express app
 const app = express();
 const _dirname= path.resolve();
 
@@ -26,11 +27,11 @@ app.use(cookieParser());
 
 // Correct CORS configuration
 const corsoption = {
-    origin: "http://localhost:3000",
-    credentials: true,  // Fix the typo
+    origin: "https://twitter-clone-interface.vercel.app",
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
 };
 app.use(cors(corsoption));
-
 
 // API routes
 app.use("/api/v1/user", userRoute);
@@ -41,7 +42,7 @@ app.get("*",(req,res)=>{
     res.sendFile(path.resolve(_dirname,'frontend','build','index.html'));
 })
 
-// Simple route for testing
+// Simple test route
 app.get("/home", (req, res) => {
     return res.status(200).json({
         message: "Coming from backend...",
@@ -52,7 +53,5 @@ app.get('/', (req, res) => {
     res.send('Welcome to the TwitterClone API');
 });
 
-// Start the server
-app.listen(process.env.PORT, () => {
-    console.log(`Server running at port ${process.env.PORT}`);
-});
+// No need for app.listen on Vercel
+export default app;
