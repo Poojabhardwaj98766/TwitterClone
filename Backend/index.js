@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import userRoute from './Router/UserRoute.js';
 import TweetRoute from './Router/TweetRoute.js';
 import cors from 'cors';
+import path from 'path';
 
 dotenv.config({
     path: ".env"
@@ -14,6 +15,7 @@ dotenv.config({
 dataconnect();
 
 const app = express();
+const _dirname= path.resolve();
 
 // Middleware
 app.use(express.urlencoded({
@@ -33,6 +35,11 @@ app.use(cors(corsoption));
 // API routes
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/tweet", TweetRoute);
+
+app.use(express.static(path.join(_dirname,"/frontend/build")));
+app.get("*",(req,res)=>{
+    res.sendFile(path.resolve(_dirname,'frontend','build','index.html'));
+})
 
 // Simple route for testing
 app.get("/home", (req, res) => {
